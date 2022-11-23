@@ -4,7 +4,7 @@ export default {
   Modal: '#82a7c9',
   darkOverlayColor: 'rgba(0, 0, 0, 0.4)',
   light: '#EEEEEE',
-  FrameColor: '#455',
-  shapeColor: '#ff9945',
+  FrameColor: 'black',
+  shapeColor: 'maroon',
   wordBox: 'powderblue',
 }

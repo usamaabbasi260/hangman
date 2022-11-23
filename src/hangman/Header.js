@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hangman</Text>
+      <Text style={styles.text}>Hangman Game</Text>
     </View>
   )
 }
@@ -16,8 +16,11 @@ const styles = StyleSheet.create({
     margin: 20,
     alignItems: 'center',
   },
-  text: {
-    fontSize: 20,
-    fontWeight: '700',
-  },
+  text:{fontSize:40, 
+    color:'black', 
+    alignSelf:'center', 
+    marginBottom: 50,
+    fontWeight:'bold'
+}
+  
 })

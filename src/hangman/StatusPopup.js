@@ -2,12 +2,14 @@ import { StyleSheet, Text, View, Modal, Image, TouchableOpacity } from 'react-na
 import React from 'react'
 import * as Animatable from 'react-native-animatable'
 import colors from '../common/colors'
-import winImg from '../assets/win.png'
-import loseImg from '../assets/lose.png'
 
-const StatusPopup = ({ status, onPress }) => {
+import loseImg from '../assets/hang.png'
 
-  const src = status === 'win' || status === 'completed' ? winImg : loseImg;
+import complete from '../assets/Window_Header_Label_Complete.png'
+
+const StatusPopup = ({ status }) => {
+
+  const src = status === 'win' || status === 'completed' ? complete : loseImg;
   const message = status === 'win' ? 'Congrats you won' :
     status === 'completed' ? 'Congratulations you completed the puzzle' : 'Oops you lost';
 
@@ -16,9 +18,10 @@ const StatusPopup = ({ status, onPress }) => {
     <Modal visible={status !== ''} animationType="fade" transparent={true}>
       <View style={styles.modalContainer}>
         <Animatable.View animation={'zoomIn'} delay={400} style={styles.popup}>
-          <Image source={src} style={styles.img} />
+          <Image source={src} style={{resizeMode: 'stretch', width:200, margin:10, height:100}} />
+          {/* <Image style={{ resizeMode: 'stretch', width:200}} source={require('../assets/Window_Header_Label_Complete.png')} /> */}
           <Text style={styles.text}>{message}</Text>
-          <TouchableOpacity onPress={onPress} style={styles.btn}>
+          <TouchableOpacity style={styles.btn}>
             <Text style={styles.btnText}>{buttonText}</Text>
           </TouchableOpacity>
         </Animatable.View>

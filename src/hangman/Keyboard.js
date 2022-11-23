@@ -2,24 +2,22 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import colors from '../common/colors'
 
-const Key = ({ text, onPress, disabled }) => {
+const Key = ({ text }) => {
   return (
     <TouchableOpacity
-      disabled={disabled}
-      onPress={() => onPress(text)} style={[styles.keyContainer, { backgroundColor: disabled ? '#99a' : colors.key }]}>
+      style={[styles.keyContainer]}>
       <Text style={styles.key}>{text}</Text>
     </TouchableOpacity>
   )
 }
 
 const Keyboard = ({ onPress, correctLetters, wrongLetters }) => {
-  const keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const keys = 'QWERTYUIOPASDFGHJKL;ZXCVBNM'
   return (
     <View style={styles.container}>
-      {keys.split('').map((_, index) => {
-        const disable = correctLetters.includes(_) || wrongLetters.includes(_)
+      {keys.split('').map((alphabet, index) => {
         return (
-          <Key key={index} text={_} onPress={onPress} disabled={disable} />)
+          <Key key={index} text={alphabet} />)
       })}
     </View>
   )
@@ -34,7 +32,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   keyContainer: {
-    width: 30,
+    width: 23,
     height: 38,
     backgroundColor: colors.key,
     borderRadius: 8,

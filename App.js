@@ -1,36 +1,49 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+
  *
  * @format
  * @flow strict-local
  */
 
-import React from 'react';
-import type { Node } from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
-import Hangman from './src/hangman'
+ import React from 'react';
+ 
+ import {
+   SafeAreaView,
+   StatusBar,
+   StyleSheet,
+   useColorScheme,
+ } from 'react-native';
+ import Hangman from './src/hangman/Index'
+ import Splash from './src/hangman/splash.js'
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+ import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Hangman />
-    </SafeAreaView>
-  );
-};
+ 
+ const App = () => {
+   const isDarkMode = useColorScheme() === 'dark';
+   const Stack = createNativeStackNavigator();
+   return (
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='splash' screenOptions={{headerShown: false}}>
+        <Stack.Screen name="splash" component={Splash}/>
+        <Stack.Screen name="hangman" component={Hangman}/>
+        
+      </Stack.Navigator>
 
-export default App;
+    </NavigationContainer>
+    
+    
+   );
+ };
+ 
+ const styles = StyleSheet.create({
+   container: {
+     flex: 1,
+     backgroundColor:'white'
+   },
+ });
+ 
+ export default App;
+ 

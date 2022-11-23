@@ -1,25 +1,19 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useReducer } from 'react'
+import React from 'react'
 import colors from '../common/colors'
 
-const WordBox = ({ wordData }) => {
-  const [hint, toggleHint] = useReducer(s => !s, false);
+const WordBox = () => {
 
-  const startingLetter = wordData.answer[0];
   return (
     <View style={styles.container}>
-      <Text>Opposite word of</Text>
-      <Text style={styles.word}>{wordData.word}</Text>
+      <Text style={styles.color}>Opposite word of</Text>
+      <Text style={[styles.word, styles.color]}>Today</Text>
       <View style={styles.hintContainer}>
-        <TouchableOpacity onPress={toggleHint}>
-          <Text>{'Hint'}</Text>
+        <TouchableOpacity >
+          <Text style={styles.color}>{'Hint'}</Text>
         </TouchableOpacity>
       </View>
-      {hint && (
-        <View>
-          <Text>{`Starting letter is ${startingLetter}`}</Text>
-        </View>
-      )}
+      
     </View>
   )
 }
@@ -38,6 +32,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginVertical: 8,
     textTransform: 'capitalize',
+    
+  },
+  color:{
+    color:"black"
   },
   hintContainer: {
     alignSelf: 'flex-end'
