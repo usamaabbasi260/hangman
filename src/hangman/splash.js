@@ -1,7 +1,7 @@
 import {StyleSheet, View, Image } from 'react-native'
 import React from 'react'
 
-const splash = ({navigation}) => {
+const Splash = ({navigation}) => {
     setTimeout(()=>{
         navigation.replace('hangman')
       },3000)
@@ -12,7 +12,7 @@ const splash = ({navigation}) => {
   )
 }
 
-export default splash
+export default Splash
 
 const styles = StyleSheet.create({
     size: {

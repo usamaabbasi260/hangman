@@ -2,12 +2,10 @@ import { StyleSheet, Text, View, Modal, Image, TouchableOpacity } from 'react-na
 import React from 'react'
 import * as Animatable from 'react-native-animatable'
 import colors from '../common/colors'
-
 import loseImg from '../assets/hang.png'
-
 import complete from '../assets/Window_Header_Label_Complete.png'
 
-const StatusPopup = ({ status }) => {
+const StatusPopup = ({ status, onPress }) => {
 
   const src = status === 'win' || status === 'completed' ? complete : loseImg;
   const message = status === 'win' ? 'Congrats you won' :
@@ -21,7 +19,7 @@ const StatusPopup = ({ status }) => {
           <Image source={src} style={{resizeMode: 'stretch', width:200, margin:10, height:100}} />
           {/* <Image style={{ resizeMode: 'stretch', width:200}} source={require('../assets/Window_Header_Label_Complete.png')} /> */}
           <Text style={styles.text}>{message}</Text>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity onPress={onPress} style={styles.btn}>
             <Text style={styles.btnText}>{buttonText}</Text>
           </TouchableOpacity>
         </Animatable.View>

@@ -5,33 +5,42 @@
  * @flow strict-local
  */
 
- import React from 'react';
+import React, { useState } from "react";
+
+import { useTheme } from '@react-navigation/native';
  
  import {
-   SafeAreaView,
-   StatusBar,
+   View,
+   Text,
+   Switch,
    StyleSheet,
    useColorScheme,
  } from 'react-native';
  import Hangman from './src/hangman/Index'
- import Splash from './src/hangman/splash.js'
+ import Splash from './src/hangman/Splash'
 
- import { NavigationContainer } from '@react-navigation/native';
+ import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
  
  const App = () => {
    const isDarkMode = useColorScheme() === 'dark';
    const Stack = createNativeStackNavigator();
+
+   
+
+
+
    return (
 
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='splash' screenOptions={{headerShown: false}}>
+    
+    <NavigationContainer theme={DarkTheme}>
+      <Stack.Navigator initialRouteName='splash' screenOptions={{headerShown:false}}>
         <Stack.Screen name="splash" component={Splash}/>
-        <Stack.Screen name="hangman" component={Hangman}/>
+        <Stack.Screen name="hangman" component={Hangman} />
+        
         
       </Stack.Navigator>
-
     </NavigationContainer>
     
     

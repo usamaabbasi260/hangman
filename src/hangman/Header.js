@@ -1,11 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet,Switch, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from "react";
 
-const Header = () => {
+import { useTheme } from '@react-navigation/native';
+
+const Header = (props) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  
+
+  const { colors } = useTheme();
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hangman Game</Text>
+    <View>
+      <View style={styles.container}  >
+      <View>
+        <Text style={styles.text}>Hangman Game</Text>
+      </View>
+
+      
+
+      
+      
     </View>
+    
+    </View>
+    
   )
 }
 
@@ -13,13 +32,17 @@ export default Header
 
 const styles = StyleSheet.create({
   container: {
+
     margin: 20,
-    alignItems: 'center',
+    alignItems: 'center', 
+    justifyContent: 'center',
+    alignContent:'center',
+    marginBottom: 50,
   },
-  text:{fontSize:40, 
+  text:{
+    fontSize:35, 
     color:'black', 
     alignSelf:'center', 
-    marginBottom: 50,
     fontWeight:'bold'
 }
   
